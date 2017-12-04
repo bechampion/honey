@@ -1,6 +1,7 @@
 ###Build
 docker build . -t honey
 ###Run the container ,  swap ssh port on box
+###--cap-drop all --cap-add chmod
 docker run -p 23:22 -dt honey
 ### strace all the things
 strace -tttt -p 9421 -ffff -e trace=execve,writev
