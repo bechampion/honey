@@ -4,7 +4,7 @@ docker build . -t honey
 ###--cap-drop all --cap-add chmod
 docker run -p 23:22 -dt honey
 ### strace all the things
-strace -tttt -p 9421 -ffff -e trace=execve,writev
+strace -tttt -p 9421 -ffff -e trace=execve,writev  &> file
 
 
 
