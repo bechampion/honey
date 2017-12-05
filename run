@@ -2,9 +2,10 @@
 docker build . -t honey
 ###Run the container ,  swap ssh port on box
 ###--cap-drop all --cap-add chmod
-docker run -p 23:22 -dt honey
+echo 0 > /proc/sys/net/ipv4/ip_forward
+docker run --privileged=false --cap-drop all --cap-add SYS_CHROOT --cap-add SETGID --cap-add SETUID --cap-add CHOWN  -p 23:2222 -it honey
 ### strace all the things
-strace -tttt -p 9421 -ffff -e trace=execve,writev  &> file
+strace -tttt -p 9421 -ffff -s 10000000  -e trace=execve,writev  &> file
 
 
 
