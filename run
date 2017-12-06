@@ -6,7 +6,7 @@ echo 0 > /proc/sys/net/ipv4/ip_forward
 #disable ssh into its own host
 iptables -A INPUT -i docker0 -p tcp --destination-port 22 -j DROP
 #run will all cap dropped but essentials
-docker run --privileged=false --cap-drop all --cap-add SYS_CHROOT --cap-add SETGID --cap-add SETUID --cap-add CHOWN  -p 23:2222 -it honey
+docker run --read-only --privileged=false --cap-drop all --cap-add SYS_CHROOT --cap-add SETGID --cap-add SETUID --cap-add CHOWN  -p 23:2222 -it honey
 ### strace all the things
 #-p on sshd -f pid on host
 strace -ffffff -p 10521 -s 100000 #optional -e trace=execve
