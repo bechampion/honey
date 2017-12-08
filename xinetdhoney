@@ -1,0 +1,10 @@
+service honey
+{
+	disable = no
+	socket_type = stream
+	protocol = tcp
+	wait = no
+	user = root
+	port = 55000
+	server = /tmp/honey.sh
+}
