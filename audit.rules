@@ -4,5 +4,5 @@
 -f 1
 --backlog_wait_time 0
 -a exit,always -F arch=b64 -S execve
--w /usr/bin/docker -k docker
+#-w /usr/bin/docker -k docker
 
